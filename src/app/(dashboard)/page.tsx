@@ -34,15 +34,18 @@ import {
   faTwitter,
 } from '@fortawesome/free-brands-svg-icons'
 import React from 'react'
-import UserChart from '@/components/Dashboard/UserChart'
-import IncomeChart from '@/components/Dashboard/IncomeChart'
-import ConversionChart from '@/components/Dashboard/ConversionChart'
-import SessionChart from '@/components/Dashboard/SessionChart'
-import TrafficChart from '@/components/Dashboard/TrafficChart'
+import UserChart from '@/components/Page/Dashboard/UserChart'
+import IncomeChart from '@/components/Page/Dashboard/IncomeChart'
+import ConversionChart from '@/components/Page/Dashboard/ConversionChart'
+import SessionChart from '@/components/Page/Dashboard/SessionChart'
+import TrafficChart from '@/components/Page/Dashboard/TrafficChart'
+import { getDictionary } from '@/locales/dictionary'
 
-export default function Page() {
+export default async function Page() {
+  const dict = await getDictionary()
+
   return (
-    <>
+    <div>
       <div className="row">
         <div className="col-sm-6 col-lg-3">
           <Card bg="primary" text="white" className="mb-4">
@@ -56,7 +59,7 @@ export default function Page() {
                     )
                   </span>
                 </div>
-                <div>Users</div>
+                <div>{dict.dashboard.featured.user}</div>
               </div>
               <Dropdown align="end">
                 <DropdownToggle
@@ -69,9 +72,9 @@ export default function Page() {
                 </DropdownToggle>
 
                 <DropdownMenu>
-                  <DropdownItem href="#/action-1">Action</DropdownItem>
-                  <DropdownItem href="#/action-2">Another action</DropdownItem>
-                  <DropdownItem href="#/action-3">Something else</DropdownItem>
+                  <DropdownItem href="#/action-1">{dict.dashboard.featured.action.action1}</DropdownItem>
+                  <DropdownItem href="#/action-2">{dict.dashboard.featured.action.action2}</DropdownItem>
+                  <DropdownItem href="#/action-3">{dict.dashboard.featured.action.action3}</DropdownItem>
                 </DropdownMenu>
               </Dropdown>
             </CardBody>
@@ -93,7 +96,7 @@ export default function Page() {
                     )
                   </span>
                 </div>
-                <div>Income</div>
+                <div>{dict.dashboard.featured.income}</div>
               </div>
               <Dropdown align="end">
                 <DropdownToggle
@@ -106,9 +109,9 @@ export default function Page() {
                 </DropdownToggle>
 
                 <DropdownMenu>
-                  <DropdownItem href="#/action-1">Action</DropdownItem>
-                  <DropdownItem href="#/action-2">Another action</DropdownItem>
-                  <DropdownItem href="#/action-3">Something else</DropdownItem>
+                  <DropdownItem href="#/action-1">{dict.dashboard.featured.action.action1}</DropdownItem>
+                  <DropdownItem href="#/action-2">{dict.dashboard.featured.action.action2}</DropdownItem>
+                  <DropdownItem href="#/action-3">{dict.dashboard.featured.action.action3}</DropdownItem>
                 </DropdownMenu>
               </Dropdown>
             </CardBody>
@@ -130,7 +133,7 @@ export default function Page() {
                     )
                   </span>
                 </div>
-                <div>Conversion Rate</div>
+                <div>{dict.dashboard.featured.conversion_rate}</div>
               </div>
               <Dropdown align="end">
                 <DropdownToggle
@@ -143,9 +146,9 @@ export default function Page() {
                 </DropdownToggle>
 
                 <DropdownMenu>
-                  <DropdownItem href="#/action-1">Action</DropdownItem>
-                  <DropdownItem href="#/action-2">Another action</DropdownItem>
-                  <DropdownItem href="#/action-3">Something else</DropdownItem>
+                  <DropdownItem href="#/action-1">{dict.dashboard.featured.action.action1}</DropdownItem>
+                  <DropdownItem href="#/action-2">{dict.dashboard.featured.action.action2}</DropdownItem>
+                  <DropdownItem href="#/action-3">{dict.dashboard.featured.action.action3}</DropdownItem>
                 </DropdownMenu>
               </Dropdown>
             </CardBody>
@@ -167,7 +170,7 @@ export default function Page() {
                     )
                   </span>
                 </div>
-                <div>Sessions</div>
+                <div>{dict.dashboard.featured.sessions}</div>
               </div>
               <Dropdown align="end">
                 <DropdownToggle
@@ -180,9 +183,9 @@ export default function Page() {
                 </DropdownToggle>
 
                 <DropdownMenu>
-                  <DropdownItem href="#/action-1">Action</DropdownItem>
-                  <DropdownItem href="#/action-2">Another action</DropdownItem>
-                  <DropdownItem href="#/action-3">Something else</DropdownItem>
+                  <DropdownItem href="#/action-1">{dict.dashboard.featured.action.action1}</DropdownItem>
+                  <DropdownItem href="#/action-2">{dict.dashboard.featured.action.action2}</DropdownItem>
+                  <DropdownItem href="#/action-3">{dict.dashboard.featured.action.action3}</DropdownItem>
                 </DropdownMenu>
               </Dropdown>
             </CardBody>
@@ -197,8 +200,8 @@ export default function Page() {
         <CardBody>
           <div className="d-flex justify-content-between">
             <div>
-              <h4 className="mb-0">Traffic</h4>
-              <div className="small text-black-50">January - July 2021</div>
+              <h4 className="mb-0">{dict.dashboard.traffic.title}</h4>
+              <div className="small text-black-50 dark:text-gray-500">{dict.dashboard.traffic.duration}</div>
             </div>
             <div className="d-none d-md-block">
               <ButtonGroup aria-label="Toolbar with buttons" className="mx-3">
@@ -209,7 +212,12 @@ export default function Page() {
                   name="options"
                   autoComplete="off"
                 />
-                <label className="btn btn-outline-secondary" htmlFor="option1">Day</label>
+                <label
+                  className="btn btn-outline-secondary"
+                  htmlFor="option1"
+                >
+                  {dict.dashboard.traffic.option.day}
+                </label>
                 <input
                   className="btn-check"
                   id="option2"
@@ -222,7 +230,7 @@ export default function Page() {
                   className="btn btn-outline-secondary active"
                   htmlFor="option2"
                 >
-                  Month
+                  {dict.dashboard.traffic.option.month}
                 </label>
                 <input
                   className="btn-check"
@@ -231,7 +239,12 @@ export default function Page() {
                   name="options"
                   autoComplete="off"
                 />
-                <label className="btn btn-outline-secondary" htmlFor="option3">Year</label>
+                <label
+                  className="btn btn-outline-secondary"
+                  htmlFor="option3"
+                >
+                  {dict.dashboard.traffic.option.year}
+                </label>
               </ButtonGroup>
               <Button variant="primary">
                 <FontAwesomeIcon icon={faDownload} fixedWidth />
@@ -250,8 +263,13 @@ export default function Page() {
         <CardFooter>
           <div className="row row-cols-1 row-cols-md-5 text-center">
             <div className="col mb-sm-2 mb-0">
-              <div className="text-black-50">Visits</div>
-              <div className="fw-semibold">29.703 Users (40%)</div>
+              <div className="text-black-50 dark:text-gray-500">{dict.dashboard.traffic.category1}</div>
+              <div className="fw-semibold">
+                29.703
+                {dict.dashboard.traffic.users}
+                {' '}
+                (40%)
+              </div>
               <ProgressBar
                 className="progress-thin mt-2"
                 variant="success"
@@ -259,8 +277,13 @@ export default function Page() {
               />
             </div>
             <div className="col mb-sm-2 mb-0">
-              <div className="text-black-50">Unique</div>
-              <div className="fw-semibold">24.093 Users (20%)</div>
+              <div className="text-black-50 dark:text-gray-500">{dict.dashboard.traffic.category2}</div>
+              <div className="fw-semibold">
+                24.093
+                {dict.dashboard.traffic.users}
+                {' '}
+                (20%)
+              </div>
               <ProgressBar
                 className="progress-thin mt-2"
                 variant="info"
@@ -268,8 +291,13 @@ export default function Page() {
               />
             </div>
             <div className="col mb-sm-2 mb-0">
-              <div className="text-black-50">Page views</div>
-              <div className="fw-semibold">78.706 Views (60%)</div>
+              <div className="text-black-50 dark:text-gray-500">{dict.dashboard.traffic.category3}</div>
+              <div className="fw-semibold">
+                78.706
+                {dict.dashboard.traffic.views}
+                {' '}
+                (60%)
+              </div>
               <ProgressBar
                 className="progress-thin mt-2"
                 variant="warning"
@@ -277,8 +305,13 @@ export default function Page() {
               />
             </div>
             <div className="col mb-sm-2 mb-0">
-              <div className="text-black-50">New Users</div>
-              <div className="fw-semibold">22.123 Users (80%)</div>
+              <div className="text-black-50 dark:text-gray-500">{dict.dashboard.traffic.category4}</div>
+              <div className="fw-semibold">
+                22.123
+                {dict.dashboard.traffic.users}
+                {' '}
+                (80%)
+              </div>
               <ProgressBar
                 className="progress-thin mt-2"
                 variant="danger"
@@ -286,7 +319,7 @@ export default function Page() {
               />
             </div>
             <div className="col mb-sm-2 mb-0">
-              <div className="text-black-50">Bounce Rate</div>
+              <div className="text-black-50 dark:text-gray-500">{dict.dashboard.traffic.category5}</div>
               <div className="fw-semibold">40.15%</div>
               <ProgressBar
                 className="progress-thin mt-2"
@@ -316,12 +349,16 @@ export default function Page() {
               <div className="row text-center">
                 <div className="col">
                   <div className="fs-5 fw-semibold">89k</div>
-                  <div className="text-uppercase text-black-50 small">friends</div>
+                  <div className="text-uppercase text-black-50 dark:text-gray-500 small">
+                    {dict.dashboard.social.facebook.label1}
+                  </div>
                 </div>
                 <div className="vr p-0" />
                 <div className="col">
                   <div className="fs-5 fw-semibold">459</div>
-                  <div className="text-uppercase text-black-50 small">feeds</div>
+                  <div className="text-uppercase text-black-50 dark:text-gray-500 small">
+                    {dict.dashboard.social.facebook.label2}
+                  </div>
                 </div>
               </div>
             </CardBody>
@@ -345,12 +382,16 @@ export default function Page() {
               <div className="row text-center">
                 <div className="col">
                   <div className="fs-5 fw-semibold">973k</div>
-                  <div className="text-uppercase text-black-50 small">followers</div>
+                  <div className="text-uppercase text-black-50 dark:text-gray-500 small">
+                    {dict.dashboard.social.twitter.label1}
+                  </div>
                 </div>
                 <div className="vr p-0" />
                 <div className="col">
                   <div className="fs-5 fw-semibold">1.792</div>
-                  <div className="text-uppercase text-black-50 small">tweets</div>
+                  <div className="text-uppercase text-black-50 dark:text-gray-500 small">
+                    {dict.dashboard.social.twitter.label2}
+                  </div>
                 </div>
               </div>
             </CardBody>
@@ -374,12 +415,16 @@ export default function Page() {
               <div className="row text-center">
                 <div className="col">
                   <div className="fs-5 fw-semibold">500+</div>
-                  <div className="text-uppercase text-black-50 small">contacts</div>
+                  <div className="text-uppercase text-black-50 dark:text-gray-500 small">
+                    {dict.dashboard.social.instagram.label1}
+                  </div>
                 </div>
                 <div className="vr p-0" />
                 <div className="col">
                   <div className="fs-5 fw-semibold">292</div>
-                  <div className="text-uppercase text-black-50 small">feeds</div>
+                  <div className="text-uppercase text-black-50 dark:text-gray-500 small">
+                    {dict.dashboard.social.instagram.label2}
+                  </div>
                 </div>
               </div>
             </CardBody>
@@ -392,7 +437,7 @@ export default function Page() {
         <div className="col-md-12">
           <Card>
             <CardHeader>
-              Traffic &amp; Sales
+              {dict.dashboard.sales.title}
             </CardHeader>
             <CardBody>
               <div className="row">
@@ -400,8 +445,8 @@ export default function Page() {
                   <div className="row">
                     <div className="col-6">
                       <div className="border-start border-4 border-info px-3 mb-3">
-                        <small className="text-black-50">
-                          New Clients
+                        <small className="text-black-50 dark:text-gray-500">
+                          {dict.dashboard.sales.stats.stat1}
                         </small>
                         <div className="fs-5 fw-semibold">9,123</div>
                       </div>
@@ -409,8 +454,8 @@ export default function Page() {
 
                     <div className="col-6">
                       <div className="border-start border-4 border-danger px-3 mb-3">
-                        <small className="text-black-50">
-                          Recurring Clients
+                        <small className="text-black-50 dark:text-gray-500">
+                          {dict.dashboard.sales.stats.stat2}
                         </small>
                         <div className="fs-5 fw-semibold">22,643</div>
                       </div>
@@ -422,8 +467,8 @@ export default function Page() {
 
                   <div className="row mb-4 align-items-center">
                     <div className="col-3">
-                      <span className="text-black-50 small">
-                        Monday
+                      <span className="text-black-50 dark:text-gray-500 small">
+                        {dict.dashboard.sales.monday}
                       </span>
                     </div>
                     <div className="col">
@@ -442,8 +487,8 @@ export default function Page() {
 
                   <div className="row mb-4 align-items-center">
                     <div className="col-3">
-                      <span className="text-black-50 small">
-                        Tuesday
+                      <span className="text-black-50 dark:text-gray-500 small">
+                        {dict.dashboard.sales.tuesday}
                       </span>
                     </div>
                     <div className="col">
@@ -462,8 +507,8 @@ export default function Page() {
 
                   <div className="row mb-4 align-items-center">
                     <div className="col-3">
-                      <span className="text-black-50 small">
-                        Wednesday
+                      <span className="text-black-50 dark:text-gray-500 small">
+                        {dict.dashboard.sales.wednesday}
                       </span>
                     </div>
                     <div className="col">
@@ -482,8 +527,8 @@ export default function Page() {
 
                   <div className="row mb-4 align-items-center">
                     <div className="col-3">
-                      <span className="text-black-50 small">
-                        Thursday
+                      <span className="text-black-50 dark:text-gray-500 small">
+                        {dict.dashboard.sales.thursday}
                       </span>
                     </div>
                     <div className="col">
@@ -502,8 +547,8 @@ export default function Page() {
 
                   <div className="row mb-4 align-items-center">
                     <div className="col-3">
-                      <span className="text-black-50 small">
-                        Friday
+                      <span className="text-black-50 dark:text-gray-500 small">
+                        {dict.dashboard.sales.friday}
                       </span>
                     </div>
                     <div className="col">
@@ -522,8 +567,8 @@ export default function Page() {
 
                   <div className="row mb-4 align-items-center">
                     <div className="col-3">
-                      <span className="text-black-50 small">
-                        Saturday
+                      <span className="text-black-50 dark:text-gray-500 small">
+                        {dict.dashboard.sales.saturday}
                       </span>
                     </div>
                     <div className="col">
@@ -542,8 +587,8 @@ export default function Page() {
 
                   <div className="row mb-4 align-items-center">
                     <div className="col-3">
-                      <span className="text-black-50 small">
-                        Sunday
+                      <span className="text-black-50 dark:text-gray-500 small">
+                        {dict.dashboard.sales.sunday}
                       </span>
                     </div>
                     <div className="col">
@@ -565,8 +610,8 @@ export default function Page() {
                   <div className="row">
                     <div className="col-6">
                       <div className="border-start border-4 border-warning px-3 mb-3">
-                        <small className="text-black-50">
-                          Pageviews
+                        <small className="text-black-50 dark:text-gray-500">
+                          {dict.dashboard.sales.stats.stat3}
                         </small>
                         <div className="fs-5 fw-semibold">78,623</div>
                       </div>
@@ -574,8 +619,8 @@ export default function Page() {
 
                     <div className="col-6">
                       <div className="border-start border-4 border-success px-3 mb-3">
-                        <small className="text-black-50">
-                          Organic
+                        <small className="text-black-50 dark:text-gray-500">
+                          {dict.dashboard.sales.stats.stat4}
                         </small>
                         <div className="fs-5 fw-semibold">49,123</div>
                       </div>
@@ -590,7 +635,7 @@ export default function Page() {
                       <div className="d-flex mb-1">
                         <div>
                           <FontAwesomeIcon className="me-2" icon={faMars} fixedWidth />
-                          Male
+                          {dict.dashboard.sales.male}
                         </div>
                         <div className="ms-auto fw-semibold">43%</div>
                       </div>
@@ -605,7 +650,7 @@ export default function Page() {
                       <div className="d-flex mb-1">
                         <div>
                           <FontAwesomeIcon className="me-2" icon={faVenus} fixedWidth />
-                          Female
+                          {dict.dashboard.sales.female}
                         </div>
                         <div className="ms-auto fw-semibold">37%</div>
                       </div>
@@ -621,10 +666,10 @@ export default function Page() {
                     <div className="d-flex mb-1">
                       <div>
                         <FontAwesomeIcon className="me-2" icon={faSearch} fixedWidth />
-                        Organic Search
+                        {dict.dashboard.sales.organic}
                       </div>
                       <div className="ms-auto fw-semibold me-2">191.235</div>
-                      <div className="text-black-50 small">(56%)</div>
+                      <div className="text-black-50 dark:text-gray-500 small">(56%)</div>
                     </div>
                     <ProgressBar
                       className="progress-thin"
@@ -637,10 +682,10 @@ export default function Page() {
                     <div className="d-flex mb-1">
                       <div>
                         <FontAwesomeIcon className="me-2" icon={faFacebookF} fixedWidth />
-                        Facebook
+                        {dict.dashboard.sales.facebook}
                       </div>
                       <div className="ms-auto fw-semibold me-2">51.223</div>
-                      <div className="text-black-50 small">(15%)</div>
+                      <div className="text-black-50 dark:text-gray-500 small">(15%)</div>
                     </div>
                     <ProgressBar
                       className="progress-thin"
@@ -653,10 +698,10 @@ export default function Page() {
                     <div className="d-flex mb-1">
                       <div>
                         <FontAwesomeIcon className="me-2" icon={faTwitter} fixedWidth />
-                        Twitter
+                        {dict.dashboard.sales.twitter}
                       </div>
                       <div className="ms-auto fw-semibold me-2">37.564</div>
-                      <div className="text-black-50 small">(11%)</div>
+                      <div className="text-black-50 dark:text-gray-500 small">(11%)</div>
                     </div>
                     <ProgressBar
                       className="progress-thin"
@@ -669,10 +714,10 @@ export default function Page() {
                     <div className="d-flex mb-1">
                       <div>
                         <FontAwesomeIcon className="me-2" icon={faLinkedinIn} fixedWidth />
-                        LinkedIn
+                        {dict.dashboard.sales.linkedin}
                       </div>
                       <div className="ms-auto fw-semibold me-2">27.319</div>
-                      <div className="text-black-50 small">(8%)</div>
+                      <div className="text-black-50 dark:text-gray-500 small">(8%)</div>
                     </div>
                     <ProgressBar
                       className="progress-thin"
@@ -687,15 +732,15 @@ export default function Page() {
 
               <div className="table-responsive">
                 <table className="table border mb-0">
-                  <thead className="table-light fw-semibold">
-                    <tr className="align-middle">
+                  <thead className="fw-semibold">
+                    <tr className="align-middle table-light dark:table-dark">
                       <th className="text-center" aria-label="icon">
                         <FontAwesomeIcon icon={faUsers} fixedWidth />
                       </th>
-                      <th>User</th>
-                      <th>Usage</th>
-                      <th className="text-center">Payment Method</th>
-                      <th>Activity</th>
+                      <th>{dict.dashboard.listing.headers.header1}</th>
+                      <th>{dict.dashboard.listing.headers.header2}</th>
+                      <th className="text-center">{dict.dashboard.listing.headers.header3}</th>
+                      <th>{dict.dashboard.listing.headers.header4}</th>
                       <th aria-label="Action" />
                     </tr>
                   </thead>
@@ -716,11 +761,16 @@ export default function Page() {
                         </div>
                       </td>
                       <td>
-                        <div>Yiorgos Avraamu</div>
-                        <div className="small text-black-50">
-                          <span>New</span>
+                        <div>{dict.dashboard.listing.items.item1.name}</div>
+                        <div className="small text-black-50 dark:text-gray-500">
+                          <span>{dict.dashboard.listing.user_status.new}</span>
                           {' '}
-                          | Registered: Jan 1, 2020
+                          |
+                          {' '}
+                          {dict.dashboard.listing.registered}
+                          :
+                          {' '}
+                          {dict.dashboard.listing.registered_at}
                         </div>
                       </td>
                       <td>
@@ -729,8 +779,8 @@ export default function Page() {
                             <div className="fw-semibold">50%</div>
                           </div>
                           <div className="float-end">
-                            <small className="text-black-50">
-                              Jun 11, 2020 - Jul 10, 2020
+                            <small className="text-black-50 dark:text-gray-500">
+                              {dict.dashboard.listing.usage_duration}
                             </small>
                           </div>
                         </div>
@@ -740,28 +790,28 @@ export default function Page() {
                         <FontAwesomeIcon icon={faCcAmex} size="lg" fixedWidth />
                       </td>
                       <td>
-                        <div className="small text-black-50">Last login</div>
-                        <div className="fw-semibold">10 sec ago</div>
+                        <div className="small text-black-50 dark:text-gray-500">{dict.dashboard.listing.last_login}</div>
+                        <div className="fw-semibold">{dict.dashboard.listing.items.item1.login_at}</div>
                       </td>
                       <td>
                         <Dropdown align="end">
                           <DropdownToggle
                             as="button"
                             bsPrefix="btn"
-                            className="btn-link rounded-0 text-black-50 shadow-none p-0"
+                            className="btn-link rounded-0 text-black-50 dark:text-gray-500 shadow-none p-0"
                             id="action-user1"
                           >
                             <FontAwesomeIcon fixedWidth icon={faEllipsisVertical} />
                           </DropdownToggle>
 
                           <DropdownMenu>
-                            <DropdownItem href="#/action-1">Info</DropdownItem>
-                            <DropdownItem href="#/action-2">Edit</DropdownItem>
+                            <DropdownItem href="#/action-1">{dict.action.info}</DropdownItem>
+                            <DropdownItem href="#/action-2">{dict.action.edit}</DropdownItem>
                             <DropdownItem
                               className="text-danger"
                               href="#/action-3"
                             >
-                              Delete
+                              {dict.action.delete}
                             </DropdownItem>
                           </DropdownMenu>
                         </Dropdown>
@@ -783,11 +833,16 @@ export default function Page() {
                         </div>
                       </td>
                       <td>
-                        <div>Avram Tarasios</div>
-                        <div className="small text-black-50">
-                          <span>Recurring</span>
+                        <div>{dict.dashboard.listing.items.item2.name}</div>
+                        <div className="small text-black-50 dark:text-gray-500">
+                          <span>{dict.dashboard.listing.user_status.recurring}</span>
                           {' '}
-                          | Registered: Jan 1, 2020
+                          |
+                          {' '}
+                          {dict.dashboard.listing.registered}
+                          :
+                          {' '}
+                          {dict.dashboard.listing.registered_at}
                         </div>
                       </td>
                       <td>
@@ -796,8 +851,8 @@ export default function Page() {
                             <div className="fw-semibold">10%</div>
                           </div>
                           <div className="float-end">
-                            <small className="text-black-50">
-                              Jun 11, 2020 - Jul 10, 2020
+                            <small className="text-black-50 dark:text-gray-500">
+                              {dict.dashboard.listing.usage_duration}
                             </small>
                           </div>
                         </div>
@@ -807,28 +862,28 @@ export default function Page() {
                         <FontAwesomeIcon icon={faCcVisa} size="lg" fixedWidth />
                       </td>
                       <td>
-                        <div className="small text-black-50">Last login</div>
-                        <div className="fw-semibold">5 minutes ago</div>
+                        <div className="small text-black-50 dark:text-gray-500">{dict.dashboard.listing.last_login}</div>
+                        <div className="fw-semibold">{dict.dashboard.listing.items.item2.login_at}</div>
                       </td>
                       <td>
                         <Dropdown align="end">
                           <DropdownToggle
                             as="button"
                             bsPrefix="btn"
-                            className="btn-link rounded-0 text-black-50 shadow-none p-0"
+                            className="btn-link rounded-0 text-black-50 dark:text-gray-500 shadow-none p-0"
                             id="action-user2"
                           >
                             <FontAwesomeIcon fixedWidth icon={faEllipsisVertical} />
                           </DropdownToggle>
 
                           <DropdownMenu>
-                            <DropdownItem href="#/action-1">Info</DropdownItem>
-                            <DropdownItem href="#/action-2">Edit</DropdownItem>
+                            <DropdownItem href="#/action-1">{dict.action.info}</DropdownItem>
+                            <DropdownItem href="#/action-2">{dict.action.edit}</DropdownItem>
                             <DropdownItem
                               className="text-danger"
                               href="#/action-3"
                             >
-                              Delete
+                              {dict.action.delete}
                             </DropdownItem>
                           </DropdownMenu>
                         </Dropdown>
@@ -850,11 +905,16 @@ export default function Page() {
                         </div>
                       </td>
                       <td>
-                        <div>Quintin Ed</div>
-                        <div className="small text-black-50">
-                          <span>New</span>
+                        <div>{dict.dashboard.listing.items.item3.name}</div>
+                        <div className="small text-black-50 dark:text-gray-500">
+                          <span>{dict.dashboard.listing.user_status.new}</span>
                           {' '}
-                          | Registered: Jan 1, 2020
+                          |
+                          {' '}
+                          {dict.dashboard.listing.registered}
+                          :
+                          {' '}
+                          {dict.dashboard.listing.registered_at}
                         </div>
                       </td>
                       <td>
@@ -863,8 +923,8 @@ export default function Page() {
                             <div className="fw-semibold">74%</div>
                           </div>
                           <div className="float-end">
-                            <small className="text-black-50">
-                              Jun 11, 2020 - Jul 10, 2020
+                            <small className="text-black-50 dark:text-gray-500">
+                              {dict.dashboard.listing.usage_duration}
                             </small>
                           </div>
                         </div>
@@ -874,28 +934,28 @@ export default function Page() {
                         <FontAwesomeIcon icon={faCcStripe} size="lg" fixedWidth />
                       </td>
                       <td>
-                        <div className="small text-black-50">Last login</div>
-                        <div className="fw-semibold">1 hour ago</div>
+                        <div className="small text-black-50 dark:text-gray-500">{dict.dashboard.listing.last_login}</div>
+                        <div className="fw-semibold">{dict.dashboard.listing.items.item3.login_at}</div>
                       </td>
                       <td>
                         <Dropdown align="end">
                           <DropdownToggle
                             as="button"
                             bsPrefix="btn"
-                            className="btn-link rounded-0 text-black-50 shadow-none p-0"
+                            className="btn-link rounded-0 text-black-50 dark:text-gray-500 shadow-none p-0"
                             id="action-user3"
                           >
                             <FontAwesomeIcon fixedWidth icon={faEllipsisVertical} />
                           </DropdownToggle>
 
                           <DropdownMenu>
-                            <DropdownItem href="#/action-1">Info</DropdownItem>
-                            <DropdownItem href="#/action-2">Edit</DropdownItem>
+                            <DropdownItem href="#/action-1">{dict.action.info}</DropdownItem>
+                            <DropdownItem href="#/action-2">{dict.action.edit}</DropdownItem>
                             <DropdownItem
                               className="text-danger"
                               href="#/action-3"
                             >
-                              Delete
+                              {dict.action.delete}
                             </DropdownItem>
                           </DropdownMenu>
                         </Dropdown>
@@ -917,11 +977,16 @@ export default function Page() {
                         </div>
                       </td>
                       <td>
-                        <div>Enéas Kwadwo</div>
-                        <div className="small text-black-50">
-                          <span>New</span>
+                        <div>{dict.dashboard.listing.items.item4.name}</div>
+                        <div className="small text-black-50 dark:text-gray-500">
+                          <span>{dict.dashboard.listing.user_status.new}</span>
                           {' '}
-                          | Registered: Jan 1, 2020
+                          |
+                          {' '}
+                          {dict.dashboard.listing.registered}
+                          :
+                          {' '}
+                          {dict.dashboard.listing.registered_at}
                         </div>
                       </td>
                       <td>
@@ -930,8 +995,8 @@ export default function Page() {
                             <div className="fw-semibold">98%</div>
                           </div>
                           <div className="float-end">
-                            <small className="text-black-50">
-                              Jun 11, 2020 - Jul 10, 2020
+                            <small className="text-black-50 dark:text-gray-500">
+                              {dict.dashboard.listing.usage_duration}
                             </small>
                           </div>
                         </div>
@@ -941,28 +1006,28 @@ export default function Page() {
                         <FontAwesomeIcon icon={faCcPaypal} size="lg" fixedWidth />
                       </td>
                       <td>
-                        <div className="small text-black-50">Last login</div>
-                        <div className="fw-semibold">Last month</div>
+                        <div className="small text-black-50 dark:text-gray-500">{dict.dashboard.listing.last_login}</div>
+                        <div className="fw-semibold">{dict.dashboard.listing.items.item4.login_at}</div>
                       </td>
                       <td>
                         <Dropdown align="end">
                           <DropdownToggle
                             as="button"
                             bsPrefix="btn"
-                            className="btn-link rounded-0 text-black-50 shadow-none p-0"
+                            className="btn-link rounded-0 text-black-50 dark:text-gray-500 shadow-none p-0"
                             id="action-user4"
                           >
                             <FontAwesomeIcon fixedWidth icon={faEllipsisVertical} />
                           </DropdownToggle>
 
                           <DropdownMenu>
-                            <DropdownItem href="#/action-1">Info</DropdownItem>
-                            <DropdownItem href="#/action-2">Edit</DropdownItem>
+                            <DropdownItem href="#/action-1">{dict.action.info}</DropdownItem>
+                            <DropdownItem href="#/action-2">{dict.action.edit}</DropdownItem>
                             <DropdownItem
                               className="text-danger"
                               href="#/action-3"
                             >
-                              Delete
+                              {dict.action.delete}
                             </DropdownItem>
                           </DropdownMenu>
                         </Dropdown>
@@ -984,11 +1049,16 @@ export default function Page() {
                         </div>
                       </td>
                       <td>
-                        <div>Agapetus Tadeáš</div>
-                        <div className="small text-black-50">
-                          <span>New</span>
+                        <div>{dict.dashboard.listing.items.item5.name}</div>
+                        <div className="small text-black-50 dark:text-gray-500">
+                          <span>{dict.dashboard.listing.user_status.new}</span>
                           {' '}
-                          | Registered: Jan 1, 2020
+                          |
+                          {' '}
+                          {dict.dashboard.listing.registered}
+                          :
+                          {' '}
+                          {dict.dashboard.listing.registered_at}
                         </div>
                       </td>
                       <td>
@@ -997,8 +1067,8 @@ export default function Page() {
                             <div className="fw-semibold">22%</div>
                           </div>
                           <div className="float-end">
-                            <small className="text-black-50">
-                              Jun 11, 2020 - Jul 10, 2020
+                            <small className="text-black-50 dark:text-gray-500">
+                              {dict.dashboard.listing.usage_duration}
                             </small>
                           </div>
                         </div>
@@ -1008,28 +1078,28 @@ export default function Page() {
                         <FontAwesomeIcon icon={faCcApplePay} size="lg" fixedWidth />
                       </td>
                       <td>
-                        <div className="small text-black-50">Last login</div>
-                        <div className="fw-semibold">Last week</div>
+                        <div className="small text-black-50 dark:text-gray-500">{dict.dashboard.listing.last_login}</div>
+                        <div className="fw-semibold">{dict.dashboard.listing.items.item5.login_at}</div>
                       </td>
                       <td>
                         <Dropdown align="end">
                           <DropdownToggle
                             as="button"
                             bsPrefix="btn"
-                            className="btn-link rounded-0 text-black-50 shadow-none p-0"
+                            className="btn-link rounded-0 text-black-50 dark:text-gray-500 shadow-none p-0"
                             id="action-user5"
                           >
                             <FontAwesomeIcon fixedWidth icon={faEllipsisVertical} />
                           </DropdownToggle>
 
                           <DropdownMenu>
-                            <DropdownItem href="#/action-1">Info</DropdownItem>
-                            <DropdownItem href="#/action-2">Edit</DropdownItem>
+                            <DropdownItem href="#/action-1">{dict.action.info}</DropdownItem>
+                            <DropdownItem href="#/action-2">{dict.action.edit}</DropdownItem>
                             <DropdownItem
                               className="text-danger"
                               href="#/action-3"
                             >
-                              Delete
+                              {dict.action.delete}
                             </DropdownItem>
                           </DropdownMenu>
                         </Dropdown>
@@ -1051,11 +1121,16 @@ export default function Page() {
                         </div>
                       </td>
                       <td>
-                        <div>Friderik Dávid</div>
-                        <div className="small text-black-50">
-                          <span>New</span>
+                        <div>{dict.dashboard.listing.items.item6.name}</div>
+                        <div className="small text-black-50 dark:text-gray-500">
+                          <span>{dict.dashboard.listing.user_status.new}</span>
                           {' '}
-                          | Registered: Jan 1, 2020
+                          |
+                          {' '}
+                          {dict.dashboard.listing.registered}
+                          :
+                          {' '}
+                          {dict.dashboard.listing.registered_at}
                         </div>
                       </td>
                       <td>
@@ -1064,8 +1139,8 @@ export default function Page() {
                             <div className="fw-semibold">43%</div>
                           </div>
                           <div className="float-end">
-                            <small className="text-black-50">
-                              Jun 11, 2020 - Jul 10, 2020
+                            <small className="text-black-50 dark:text-gray-500">
+                              {dict.dashboard.listing.usage_duration}
                             </small>
                           </div>
                         </div>
@@ -1075,28 +1150,28 @@ export default function Page() {
                         <FontAwesomeIcon icon={faCcAmex} size="lg" fixedWidth />
                       </td>
                       <td>
-                        <div className="small text-black-50">Last login</div>
-                        <div className="fw-semibold">Yesterday</div>
+                        <div className="small text-black-50 dark:text-gray-500">{dict.dashboard.listing.last_login}</div>
+                        <div className="fw-semibold">{dict.dashboard.listing.items.item6.login_at}</div>
                       </td>
                       <td>
                         <Dropdown align="end">
                           <DropdownToggle
                             as="button"
                             bsPrefix="btn"
-                            className="btn-link rounded-0 text-black-50 shadow-none p-0"
+                            className="btn-link rounded-0 text-black-50 dark:text-gray-500 shadow-none p-0"
                             id="action-user6"
                           >
                             <FontAwesomeIcon fixedWidth icon={faEllipsisVertical} />
                           </DropdownToggle>
 
                           <DropdownMenu>
-                            <DropdownItem href="#/action-1">Info</DropdownItem>
-                            <DropdownItem href="#/action-2">Edit</DropdownItem>
+                            <DropdownItem href="#/action-1">{dict.action.info}</DropdownItem>
+                            <DropdownItem href="#/action-2">{dict.action.edit}</DropdownItem>
                             <DropdownItem
                               className="text-danger"
                               href="#/action-3"
                             >
-                              Delete
+                              {dict.action.delete}
                             </DropdownItem>
                           </DropdownMenu>
                         </Dropdown>
@@ -1109,6 +1184,6 @@ export default function Page() {
           </Card>
         </div>
       </div>
-    </>
+    </div>
   )
 }

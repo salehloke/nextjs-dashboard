@@ -14,7 +14,9 @@ This dashboard is built with `Typescript` and [React Bootstrap](https://react-bo
 
 https://nextjs-dashboard-olive.vercel.app
 
-[<img alt="Dashboard" width="400" src="https://user-images.githubusercontent.com/7660346/180629352-f92216e3-7cf4-4fba-92fa-089dd96b4478.png" />](https://nextjs-dashboard-olive.vercel.app)
+| Light                                                                                                                                                       | Dark                                                                                                                                                       |
+|-------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| [<img alt="Dashboard" width="400" src="https://raw.githubusercontent.com/kitloong/screenshot/main/light.png" />](https://nextjs-dashboard-olive.vercel.app) | [<img alt="Dashboard" width="400" src="https://raw.githubusercontent.com/kitloong/screenshot/main/dark.png" />](https://nextjs-dashboard-olive.vercel.app) |
 
 | Mobile (collapsed)                                                                                                                                                                           | Mobile (expand)                                                                                                                                                                              |
 |----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -24,7 +26,12 @@ https://nextjs-dashboard-olive.vercel.app
 
 https://nextjs-dashboard-olive.vercel.app/pokemons
 
-[<img alt="Sample page" width="400" src="https://user-images.githubusercontent.com/7660346/183112188-75ffbd15-e7ef-455f-994b-945df16e5846.png">](https://nextjs-dashboard-olive.vercel.app/pokemons)
+#### Multilingual
+
+| English                                                                                                                                                           | 日本語                                                                                                                                                               |
+|-------------------------------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| [<img alt="Sample page" width="400" src="https://raw.githubusercontent.com/kitloong/screenshot/main/en.png">](https://nextjs-dashboard-olive.vercel.app/pokemons) | [<img alt="Sample page" width="400" src="https://raw.githubusercontent.com/kitloong/screenshot/main/ja.png">](https://nextjs-dashboard-olive.vercel.app/pokemons) |
+
 
 ### Login
 
@@ -64,26 +71,6 @@ To learn more about Next.js, take a look at the following resources:
 - [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 
 You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Installed Packages
-
-1. [Redux](https://redux.js.org/tutorials/fundamentals/part-1-overview)
-   1. [React redux](https://react-redux.js.org/introduction/getting-started)
-   2. [Redux toolkit](https://redux-toolkit.js.org/tutorials/quick-start)
-2. [Axios](https://github.com/axios/axios)
-3. [React-bootstrap](https://react-bootstrap.github.io/)
-4. [Immer](https://github.com/immerjs/immer)
-5. [react-fontawesome](https://fontawesome.com/docs/web/use-with/react/)
-   1. https://fontawesome.com/docs/web/use-with/react/use-with#next-js
-   2. https://fontawesome.com/docs/web/use-with/react/add-icons#dynamic-icon-importing
-6. [SWR](https://swr.vercel.app/)
-7. [Eslint](https://eslint.org/)
-   1. https://github.com/typescript-eslint/typescript-eslint
-   2. https://github.com/jsx-eslint/eslint-plugin-react
-   3. https://reactjs.org/docs/hooks-rules.html#eslint-plugin
-   4. https://www.npmjs.com/package/eslint-config-airbnb
-   5. https://www.npmjs.com/package/eslint-config-airbnb-typescript
-   6. https://github.com/prettier/eslint-config-prettier
 
 ## Reference
 
